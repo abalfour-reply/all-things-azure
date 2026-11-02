@@ -18,3 +18,26 @@ First in First Out Structure. Messages are timestamped etc. Usually a n:1 relati
 
 __Topics/Subscription__
 A user/node publishes to a topic. From that topic you can have multiple subscribers that all attach to the topic and works just like a queue.
+
+
+## Bicep Notes
+```bash
+# Create a resource group
+az group create --name rg-servicebus-test --location uscentral
+
+# Output
+{
+  "id": "/subscriptions/<subscription-id>/resourceGroups/rg-servicebus-test",
+  "location": "uksouth",
+  "managedBy": null,
+  "name": "rg-servicebus-test",
+  "properties": {
+    "provisioningState": "Succeeded"
+  },
+  "tags": null,
+  "type": "Microsoft.Resources/resourceGroups"
+
+
+# Command to deploy bicep file:
+az deployment group create --resource-group rg-servicebus-test --template-file sb-main.bicep
+```
