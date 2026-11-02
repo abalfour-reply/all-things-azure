@@ -20,7 +20,12 @@ __Topics/Subscription__
 A user/node publishes to a topic. From that topic you can have multiple subscribers that all attach to the topic and works just like a queue.
 
 
+
 ## Bicep Notes
+I deployed a resource group using Azure CLI
+
+I then created a bicep file (sb-main.bicep) that creates an azure service bus namespace and queue.
+
 ```bash
 # Create a resource group
 az group create --name rg-servicebus-test --location uscentral
@@ -40,4 +45,18 @@ az group create --name rg-servicebus-test --location uscentral
 
 # Command to deploy bicep file:
 az deployment group create --resource-group rg-servicebus-test --template-file sb-main.bicep
+
+
+# Linking it to my .Net Application
+dotnet new console -n MyAppName
+cd MyAppName
+
+# Add the Azure Service Bus SDK
+dotnet add Package Azure.Messaging.ServiceBus
+
+# Executes program.cs
+dotnet run
+
+# Delete all the resource we created today
+az group delete --name rg-servicebus-test --no-wait
 ```
