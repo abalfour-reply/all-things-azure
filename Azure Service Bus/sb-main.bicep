@@ -1,4 +1,4 @@
-param resourceName string = 'sb-ab-1448' # Globally unique for Azure
+param resourceName string = 'sb-ab-1448' // Globally unique for Azure
 param queueName string = 'queue'
 param location string = 'uksouth'
 
@@ -15,9 +15,6 @@ resource namespace 'Microsoft.ServiceBus/namespaces@2022-01-01-preview' = {
     publicNetworkAccess: 'Enabled'
     zoneRedundant: false
   }
-  tags: {
-    test: 'test'
-  }
 }
 
 resource queue 'Microsoft.ServiceBus/namespaces/queues@2021-06-01-preview' = {
@@ -33,9 +30,6 @@ resource queue 'Microsoft.ServiceBus/namespaces/queues@2021-06-01-preview' = {
     requiresDuplicateDetection: false
     requiresSession: false
     status: 'Active'
-  }
-  tags: {
-    test: 'test'
   }
 }
 
